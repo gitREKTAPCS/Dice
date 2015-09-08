@@ -1,24 +1,38 @@
+int oneCounter =0;
+int twoCounter =0;
+int threeCounter =0;
+int fourCounter =0;
+int fiveCounter =0;
+int sixCounter =0;
 
 void setup()
 {
 	noLoop();
-	size(512, 512);
+	size(600, 600);
 }
 void draw()
 {
 	background(0);
 	
-	for(int theX = 5; theX < 495; theX=theX+50)
+	for(int theX = 5; theX < 580; theX=theX+50)
   {
-  	for(int theY = 5; theY < 445; theY=theY+50){
+  	for(int theY = 5; theY < 533; theY=theY+50){
   	Die luis = new Die(theX, theY);
   	luis.roll();
 	luis.show();
-	text(luis.onePercentage+" "+luis.twoPercentage, 10, 480);
+	strokeWeight(1);
+	
 	}
 	
   }
-	
+  	textSize(8);
+	text("One Total Count: " +oneCounter, 10, 588);
+	text("Two Total Count: " +twoCounter, 110, 588);
+	text("Three Total Count: " +threeCounter, 210, 588);
+	text("Four Total Count: " +fourCounter, 310, 588);
+	text("Five Total Count: " +fiveCounter, 410, 588);
+	text("Six Total Count: " +sixCounter, 510, 588);
+
 }
 void mousePressed()
 {
@@ -28,22 +42,13 @@ void mousePressed()
 class Die //models one single dice cube
 {
 	//variable declarations here
-	int dieX, dieY, rollermajigger, oneCounter, twoCounter, threeCounter, fourCounter, fiveCounter, sixCounter, totalCounter, onePercentage, twoPercentage,threePercentage, fourPercentage, fivePercentage, sixPercentage;
-	
-
+	int dieX, dieY, rollermajigger;
 
 	Die(int x, int y) //constructor
 	{
 		//variable initializations here
 		dieX = x;
 		dieY = y;
-		totalCounter = 1+oneCounter+twoCounter+threeCounter+fourCounter+fiveCounter+sixCounter;
-		onePercentage = oneCounter/totalCounter;
-		twoPercentage = twoCounter/totalCounter;
-		threePercentage = threeCounter/totalCounter;
-		fourPercentage = fourCounter/totalCounter;
-		fivePercentage = fiveCounter/totalCounter;
-		sixPercentage = sixCounter/totalCounter;
 		
 	}
 	void roll()
